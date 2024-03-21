@@ -4,6 +4,9 @@ This is software for macroing stratagem inputs in Helldivers2.
 
 Windows only.
 
+Please note: This project makes no efforts to hide itself, evade detection, or circumvent any anti-cheat measures. 
+If you use this software in Helldivers 2, there is no guarantee of any kind that you will not be banned. **Use at your own risk.**
+
 # Installation
 
 Prerequisite: this requires that you have [autohotkey](https://www.autohotkey.com/) installed in a default location. Python users may use `pip install ahk[binary]` to satisfy this requirement.
