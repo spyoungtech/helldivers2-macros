@@ -22,7 +22,7 @@ jobs:
         python -m pip install --upgrade wheel setuptools build pyinstaller
         python -m build
         pyinstaller --distpath=hd2macros --name "hd2_macros" --add-data ".\hd2_macros\config.toml:." -i .\hd2_macros.ico .\hd2_macros\__main__.py
-        "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" inno.iss
+        & 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' inno.iss
         cd hd2macros
         zip -r ..\hd2_macros.zip .
 
