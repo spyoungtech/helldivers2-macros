@@ -24,7 +24,7 @@ jobs:
         pyinstaller --distpath=hd2macros --name "hd2_macros" --add-data ".\hd2_macros\config.toml:." -i .\hd2_macros.ico .\hd2_macros\__main__.py
         & 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' inno.iss
         cd hd2macros
-        zip -r ..\hd2_macros.zip .
+        7z a -r ..\hd2_macros.zip .
 
     - name: Release PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
