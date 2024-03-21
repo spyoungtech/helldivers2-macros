@@ -40,6 +40,7 @@ jobs:
     needs: build
     permissions:
       id-token: write
+      contents: write
     steps:
     - uses: actions/download-artifact@v4
       with:
