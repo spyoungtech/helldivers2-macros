@@ -1,0 +1,33 @@
+# General settings apply for all loadouts
+[general]
+# How long to wait for the helldivers window before exiting
+win_wait = 120
+hotkey_start_delay = 1
+# Change logging verbosity (valid values are "DEBUG", "INFO", "WARNING", "ERROR")
+log_level = "DEBUG"
+
+# Hide the system tray icon for the application
+no_tray_icon = false
+
+# Define a hotkey that can be used to stop the program
+# By default, bound to Windows key + Q
+exit_hotkey = "#q"
+
+
+
+# A Loadout provides a mapping of Strategems to hotkeys. Each loadout specifies a hotkey used to switch to that loadout.
+# For hotkey key syntax, see https://www.autohotkey.com/docs/v2/KeyList.htm
+
+# The default loadout is the loadout used at program starts
+[ default_loadout ]
+switch_hotkey = "#1"
+[ default_loadout.hotkeys ]
+# Maps the orbital precision strike strategem to "Windows key + n"
+# All stratagem names are lowercase
+"orbital precision strike" = "#n"
+
+# Add separate sets of loadouts using `[ loadouts.<NAME> ]`
+[ loadouts.secondary ]
+switch_hotkey = "#2"
+[ loadouts.secondary.hotkeys ]
+"orbital precision strike" = "#b"

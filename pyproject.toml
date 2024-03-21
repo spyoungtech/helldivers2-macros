@@ -1,0 +1,4 @@
+[tool.mypy]
+plugins = [
+  "pydantic.mypy"
+]
