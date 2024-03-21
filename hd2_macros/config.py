@@ -1,5 +1,6 @@
 import os
 import pathlib
+import sys
 import tomllib
 from typing import Any
 from typing import Literal
@@ -12,7 +13,11 @@ from hd2_macros.constants import T_Stratagems
 
 _valid_log_levels = ('DEBUG', 'INFO', 'WARNING', 'ERROR')
 
-_DEFAULT_CONFIG_FILE = pathlib.Path(__file__).parent / 'config.toml'
+if getattr(sys, 'frozen', False):
+    _DEFAULT_CONFIG_FILE = pathlib.Path(sys.executable).parent / '_internal' / 'config.toml'
+else:
+    _DEFAULT_CONFIG_FILE = pathlib.Path(__file__).parent / 'config.toml'
+
 
 
 class Loadout(pydantic.BaseModel):

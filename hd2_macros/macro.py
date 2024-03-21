@@ -6,11 +6,11 @@ from typing import Callable
 from ahk import AHK
 from ahk import Window
 
-from .config import find_config_file
-from .config import read_config
-from .constants import INPUT_MAPPING
-from .constants import STRATAGEMS
-from .constants import T_Stratagems
+from hd2_macros.config import find_config_file
+from hd2_macros.config import read_config
+from hd2_macros.constants import INPUT_MAPPING
+from hd2_macros.constants import STRATAGEMS
+from hd2_macros.constants import T_Stratagems
 
 logger = logging.getLogger('hd2-macros')
 logger.propagate = False
