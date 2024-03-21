@@ -56,7 +56,7 @@ T_Stratagems: TypeAlias = Literal[
     'ballistic shield backpack',
     'arc thrower',
     'shield generator pack',
-    'walker exosuit',
+    'patriot exosuit',
 ]
 
 STRATAGEMS: dict[T_Stratagems, T_Inputs] = {
@@ -111,7 +111,7 @@ STRATAGEMS: dict[T_Stratagems, T_Inputs] = {
     'ballistic shield backpack': ['Down', 'Left', 'Up', 'Up', 'Right'],
     'arc thrower': ['Down', 'Right', 'Up', 'Left', 'Down'],
     'shield generator pack': ['Down', 'Up', 'Left', 'Right', 'Left', 'Right'],
-    'walker exosuit': ['Left', 'Down', 'Right', 'Up', 'Left', 'Down', 'Down'],
+    'patriot exosuit': ['Left', 'Down', 'Right', 'Up', 'Left', 'Down', 'Down'],
 }
 
 INPUT_MAPPING: Final[dict[str, str]] = {'Down': 'S', 'Up': 'W', 'Left': 'A', 'Right': 'D'}
