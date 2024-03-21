@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "hd2_macros"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.0.1"
 #define MyAppPublisher "Spencer Phillip Young"
 #define MyAppURL "https://github.com/spyoungtech/helldivers2-macros"
 #define MyAppExeName "hd2_macros.exe"
@@ -25,7 +25,7 @@ LicenseFile=LICENSE
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
 OutputDir=innout
-OutputBaseFilename=hd2_macros-setup
+OutputBaseFilename=hd2_macros-v{#MyAppVersion}-setup
 SetupIconFile=hd2_macros.ico
 Compression=lzma
 SolidCompression=yes

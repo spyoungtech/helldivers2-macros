@@ -1,3 +1,4 @@
 include hd2_macros/config.toml
 include README.md
 include LICENSE
+include hd_macros.ico
