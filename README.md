@@ -47,10 +47,12 @@ to configure your hotkey loadouts.
 # How long to wait for the helldivers window before exiting
 win_wait = 120
 
-# De
-hotkey_start_delay = 1
-# Change logging verbosity (valid values are "DEBUG", "INFO", "WARNING", "ERROR")
-log_level = "DEBUG"
+
+# Delay in seconds between when the hotkey pressed and beginning of WASD inputs
+# Intended to allow you enough time to ensure the strategem menu is up and ready for input
+hotkey_start_delay = 1.0
+
+log_level = "DEBUG" # Change logging verbosity (valid values are "DEBUG", "INFO", "WARNING", "ERROR")
 
 # Hide the system tray icon for the application
 no_tray_icon = false

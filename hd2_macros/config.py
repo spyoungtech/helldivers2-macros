@@ -29,7 +29,7 @@ class GeneralSection(pydantic.BaseModel):
     log_level: Literal['DEBUG', 'INFO', 'WARNING', 'ERROR'] = 'INFO'
     no_tray_icon: bool = False
     win_wait: int = 120
-    hotkey_start_delay: int = 1
+    hotkey_start_delay: int | float = 1.0
     exit_hotkey: str = '#q'
 
 
