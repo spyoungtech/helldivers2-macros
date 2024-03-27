@@ -109,7 +109,7 @@ STRATAGEMS: dict[T_Stratagems, T_Inputs] = {
     'incendiary mines': ['Down', 'Left', 'Left', 'Down'],
     'guard dog rover': ['Down', 'Up', 'Left', 'Up', 'Right', 'Right'],
     'ballistic shield backpack': ['Down', 'Left', 'Up', 'Up', 'Right'],
-    'arc thrower': ['Down', 'Right', 'Up', 'Left', 'Down'],
+    'arc thrower': ['Down', 'Right', 'Down', 'Up', 'Left', 'Left'],
     'shield generator pack': ['Down', 'Up', 'Left', 'Right', 'Left', 'Right'],
     'patriot exosuit': ['Left', 'Down', 'Right', 'Up', 'Left', 'Down', 'Down'],
 }
