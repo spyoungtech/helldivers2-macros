@@ -29,10 +29,7 @@ repos:
         args:
             - "--strict"
         additional_dependencies:
-            - easyocr
-            - numpy
             - ahk>=1.5.3
-            - mss
             - pydantic
 
 -   repo: https://github.com/pycqa/flake8
