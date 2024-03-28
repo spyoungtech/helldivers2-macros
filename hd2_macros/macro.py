@@ -41,7 +41,7 @@ def create_macro_function(
     stratagem: T_Stratagems, target: Window, startup_delay: float | int = 1, key_delay: float = 0.1
 ) -> Callable[[], Any]:
     def macro() -> None:
-        logger.info(f"Performing input for {stratagem}")
+        logger.info(f'Performing input for {stratagem}')
         do_strat_input(stratagem, target, startup_delay, key_delay)
 
     return macro
