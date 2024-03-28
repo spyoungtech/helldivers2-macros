@@ -37,7 +37,9 @@ def do_strat_input(strat: T_Stratagems, target: Window, startup_delay: float | i
     return None
 
 
-def create_macro_function(stratagem: T_Stratagems, target: Window, startup_delay: float | int = 1, key_delay: float = 0.1) -> Callable[[], Any]:
+def create_macro_function(
+    stratagem: T_Stratagems, target: Window, startup_delay: float | int = 1, key_delay: float = 0.1
+) -> Callable[[], Any]:
     def macro() -> None:
         logger.info(f"Performing input for {stratagem}")
         do_strat_input(stratagem, target, startup_delay, key_delay)
@@ -125,7 +127,7 @@ def main() -> int:
                     pass
                 break
             if not hd.exists():
-                logger.info("Helldivers window not found. Exiting.")
+                logger.info('Helldivers window not found. Exiting.')
                 break
             time.sleep(1)
     except KeyboardInterrupt:
