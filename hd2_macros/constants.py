@@ -5,6 +5,8 @@ from typing import TypeAlias
 T_Inputs: TypeAlias = list[Literal['Down', 'Left', 'Up', 'Right']]
 
 T_Stratagems: TypeAlias = Literal[
+    'quasar cannon',
+    'heavy machine gun',
     'resupply',
     'orbital illumination flare',
     'hellbomb',
