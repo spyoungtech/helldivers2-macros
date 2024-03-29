@@ -19,7 +19,6 @@ else:
     _DEFAULT_CONFIG_FILE = pathlib.Path(__file__).parent / 'config.toml'
 
 
-
 class Loadout(pydantic.BaseModel):
     switch_hotkey: str = pydantic.Field(..., description='The hotkey to use to switch to this loadout')
     hotkeys: dict[T_Stratagems, str] = pydantic.Field(..., description='Mapping of stratagems to hotkeys')

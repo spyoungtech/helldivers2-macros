@@ -4,7 +4,7 @@ This is software for macroing stratagem inputs in Helldivers2.
 
 Windows only.
 
-Please note: This project makes no efforts to hide itself, evade detection, or circumvent any anti-cheat measures. 
+Please note: This project makes no efforts to hide itself, evade detection, or circumvent any anti-cheat measures.
 If you use this software in Helldivers 2, there is no guarantee of any kind that you will not be banned. **Use at your own risk.**
 
 # Installation
@@ -13,7 +13,7 @@ Prerequisite: this requires that you have [autohotkey](https://www.autohotkey.co
 
 ## Binary downloads
 
-Check the [releases page](https://github.com/spyoungtech/helldivers2-macros/releases) for traditional 
+Check the [releases page](https://github.com/spyoungtech/helldivers2-macros/releases) for traditional
 windows setup install or zip download. This is the preferred method for end-users who are not Python developers.
 
 
@@ -25,7 +25,7 @@ For Python developers, you can also install using `pip`
 pip install hd2_macros
 ```
 
-In this method, you will need to launch using `python -m hd2_macros` and the `config.toml` is expected to be in the 
+In this method, you will need to launch using `python -m hd2_macros` and the `config.toml` is expected to be in the
 present working directory.
 
 # Usage
@@ -38,7 +38,7 @@ The short version is:
 
 
 ## Configuration
-In the installation directory (or the current working directory for `pip` install users) use the `config.toml` file 
+In the installation directory (or the current working directory for `pip` install users) use the `config.toml` file
 to configure your hotkey loadouts.
 
 ```toml
