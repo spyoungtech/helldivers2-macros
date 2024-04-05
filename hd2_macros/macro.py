@@ -2,11 +2,14 @@ import logging
 import time
 from typing import Any
 from typing import Callable
+from typing import Literal
 
 from ahk import AHK
 from ahk import Window
+from ahk.exceptions import AhkExecutableNotFoundError
 
 from hd2_macros.config import find_config_file
+from hd2_macros.config import MacroConfig
 from hd2_macros.config import read_config
 from hd2_macros.constants import INPUT_MAPPING
 from hd2_macros.constants import STRATAGEMS
@@ -15,10 +18,36 @@ from hd2_macros.constants import T_Stratagems
 logger = logging.getLogger('hd2-macros')
 logger.propagate = False
 
-ahk = AHK()
+ahk: AHK[Any] | None = None
+
+
+def _set_ahk_global(config: MacroConfig) -> None:
+    global ahk
+
+    executable_path = config.general.autohotkey_executable_path or ''
+    version: Literal['v1', 'v2'] | None
+
+    if config.general.autohotkey_version == 'v1':
+        version = 'v1'
+    elif config.general.autohotkey_version == 'v2':
+        version = 'v2'
+    elif config.general.autohotkey_version is None:
+        version = None
+    else:
+        raise Exception('Unexpected configuration value for autohotkey_version')
+
+    try:
+        ahk = AHK(executable_path=executable_path, version=version)
+    except AhkExecutableNotFoundError:
+        if not executable_path and version is None:
+            ahk = AHK(version='v2')
+        else:
+            raise
+    return None
 
 
 def find_helldivers_window() -> Window | None:
+    assert ahk is not None
     for window in ahk.list_windows(blocking=False).result():
         try:
             process_path = window.process_path.lower()
@@ -70,6 +99,8 @@ def main() -> int:
     config_file = find_config_file()
     print('Found', config_file)
     config = read_config(config_file)
+    _set_ahk_global(config)
+    assert ahk is not None
     _start = time.time()
     logger.setLevel(level=getattr(logging, config.general.log_level))
     handler = logging.StreamHandler()

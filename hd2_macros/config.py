@@ -29,7 +29,10 @@ class GeneralSection(pydantic.BaseModel):
     no_tray_icon: bool = False
     win_wait: int = 120
     hotkey_start_delay: int | float = 1.0
+    key_delay: int | float = 0.1
     exit_hotkey: str = '#q'
+    autohotkey_executable_path: str | None = None
+    autohotkey_version: Literal['v1', 'v2'] | None = None
 
 
 class MacroConfig(pydantic.BaseModel):
