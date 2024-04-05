@@ -20,7 +20,12 @@ ahk = AHK()
 
 def find_helldivers_window() -> Window | None:
     for window in ahk.list_windows(blocking=False).result():
-        if 'helldivers2' in window.process_path.lower():
+        try:
+            process_path = window.process_path.lower()
+        except Exception as e:
+            logging.debug(f'error in getting window process path {e}')
+            continue
+        if 'helldivers2' in process_path:
             return window
     return None
 
