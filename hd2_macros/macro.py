@@ -127,7 +127,7 @@ def main() -> int:
             ahk.stop_hotkeys()
             ahk.clear_hotkeys()
             for strat, hotkey in hotkeys.items():
-                callback = create_macro_function(strat, hd, config.general.hotkey_start_delay)
+                callback = create_macro_function(strat, hd, config.general.hotkey_start_delay, config.general.key_delay)
                 ahk.add_hotkey(hotkey, callback, ex_handler=error_handler)
             for name, loadout_config in config.loadouts.items():
                 switch_callback = create_loadout_switcher(name, loadout_config.hotkeys)
@@ -145,7 +145,7 @@ def main() -> int:
 
     for strat, hotkey in config.default_loadout.hotkeys.items():
         logger.debug('Initializing default loadout')
-        callback = create_macro_function(strat, hd, config.general.hotkey_start_delay)
+        callback = create_macro_function(strat, hd, config.general.hotkey_start_delay, config.general.key_delay)
         ahk.add_hotkey(hotkey, callback, ex_handler=error_handler)
 
     ahk.add_hotkey(config.general.exit_hotkey, _exit, ex_handler=error_handler)
