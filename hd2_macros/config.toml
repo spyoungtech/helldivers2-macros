@@ -29,11 +29,11 @@ key_delay = 0.1
 
 
 # A Loadout provides a mapping of Strategems to hotkeys. Each loadout specifies a hotkey used to switch to that loadout.
-# For hotkey key syntax, see https://www.autohotkey.com/docs/v2/KeyList.htm
+# For hotkey/modifiers syntax, see https://www.autohotkey.com/docs/v2/Hotkeys.htm and https://www.autohotkey.com/docs/v2/KeyList.htm
 
 # The default loadout is the loadout used at program starts
 [ default_loadout ]
-switch_hotkey = "#1"
+switch_hotkey = "#1"  # press Win+1 to load this loadout
 [ default_loadout.hotkeys ]
 # Maps the orbital precision strike strategem to "Windows key + n"
 # All stratagem names are lowercase
@@ -41,6 +41,11 @@ switch_hotkey = "#1"
 
 # Add separate sets of loadouts using `[ loadouts.<NAME> ]`
 [ loadouts.secondary ]
-switch_hotkey = "#2"
+switch_hotkey = "#2" # press Win+2 to load this loadout
 [ loadouts.secondary.hotkeys ]
 "orbital precision strike" = "#b"
+"mortar sentry" = "#s"
+"eagle cluster bomb" = "#c"
+
+# You can add as many loadouts as you want.
+# ...

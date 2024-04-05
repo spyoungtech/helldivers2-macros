@@ -47,12 +47,11 @@ to configure your hotkey loadouts.
 # How long to wait for the helldivers window before exiting
 win_wait = 120
 
-
 # Delay in seconds between when the hotkey pressed and beginning of WASD inputs
 # Intended to allow you enough time to ensure the strategem menu is up and ready for input
 hotkey_start_delay = 1.0
-
-log_level = "DEBUG" # Change logging verbosity (valid values are "DEBUG", "INFO", "WARNING", "ERROR")
+# Change logging verbosity (valid values are "DEBUG", "INFO", "WARNING", "ERROR")
+log_level = "DEBUG"
 
 # Hide the system tray icon for the application
 no_tray_icon = false
@@ -60,6 +59,16 @@ no_tray_icon = false
 # Define a hotkey that can be used to stop the program
 # By default, bound to Windows key + Q
 exit_hotkey = "#q"
+
+# The time in between key UP/DOWN events when inputting macros.
+# Lowering this value will make inputs faster, but may cause inputs to be dropped.
+key_delay = 0.1
+
+# If you have AutoHotkey in a non-default location, you may specify it by uncommenting this line:
+# autohotkey_executable_path = "C:\Path\To\AutoHotkey64.exe"
+
+# You can explicitly specify the version of AutoHotkey. Usually, this is not necessary.
+# autohotkey_version = ""
 
 
 

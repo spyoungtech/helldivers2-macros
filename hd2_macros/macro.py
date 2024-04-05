@@ -3,9 +3,12 @@ import time
 from typing import Any
 from typing import Callable
 from typing import Literal
+from typing import Type
 
 from ahk import AHK
 from ahk import Window
+from ahk.directives import Directive
+from ahk.directives import NoTrayIcon
 from ahk.exceptions import AhkExecutableNotFoundError
 
 from hd2_macros.config import find_config_file
@@ -35,12 +38,16 @@ def _set_ahk_global(config: MacroConfig) -> None:
         version = None
     else:
         raise Exception('Unexpected configuration value for autohotkey_version')
-
+    directives: list[Directive | Type[Directive]] | None
+    if config.general.no_tray_icon is True:
+        directives = [NoTrayIcon(apply_to_hotkeys_process=True)]
+    else:
+        directives = None
     try:
-        ahk = AHK(executable_path=executable_path, version=version)
+        ahk = AHK(executable_path=executable_path, version=version, directives=directives)
     except AhkExecutableNotFoundError:
         if not executable_path and version is None:
-            ahk = AHK(version='v2')
+            ahk = AHK(version='v2', directives=directives)
         else:
             raise
     return None
