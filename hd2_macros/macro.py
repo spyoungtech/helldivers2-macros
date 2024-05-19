@@ -75,8 +75,9 @@ def do_strat_input(
 ) -> None:
     time.sleep(startup_delay)
     input_code = STRATAGEMS[strat]
+    is_wasd = input_type == 'WASD'
     for direction in input_code:
-        if input_type == 'WASD':
+        if is_wasd:
             key = INPUT_MAPPING[direction]
         else:
             key = direction
