@@ -23,9 +23,12 @@ key_delay = 0.1
 # If you have AutoHotkey in a non-default location, you may specify it by uncommenting this line:
 # autohotkey_executable_path = "C:\Path\To\AutoHotkey64.exe"
 
-# You can explicitly specify the version of AutoHotkey. Usually, this is not necessary.
+# You can explicitly specify the version of AutoHotkey (v1 or v2). Usually, this is not necessary.
+# When omitted, the version of Autohotkey is determined automatically
 # autohotkey_version = ""
 
+# The default input type is 'WASD' - you can change this to arrow keys with by uncommenting this setting:
+# input_type = "Arrows"
 
 
 # A Loadout provides a mapping of Strategems to hotkeys. Each loadout specifies a hotkey used to switch to that loadout.

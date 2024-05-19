@@ -33,6 +33,7 @@ class GeneralSection(pydantic.BaseModel):
     exit_hotkey: str = '#q'
     autohotkey_executable_path: str | None = None
     autohotkey_version: Literal['v1', 'v2'] | None = None
+    input_type: Literal['WASD', 'Arrows'] = 'WASD'
 
 
 class MacroConfig(pydantic.BaseModel):
