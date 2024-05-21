@@ -10,6 +10,7 @@ jobs:
     permissions:
       id-token: write
       contents: read
+    environment: deploy
     runs-on: windows-latest
     steps:
     - name: Checkout
