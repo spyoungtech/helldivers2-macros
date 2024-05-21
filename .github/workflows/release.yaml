@@ -36,7 +36,7 @@ jobs:
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
     - name: sign build
-      uses: azure/trusted-signing-action@0.3.18
+      uses: azure/trusted-signing-action@v0.3.18
       with:
         endpoint: ${{ secrets.SIGNING_ENDPOINT }}
         trusted-signing-account-name: ${{ secrets.CODE_SIGNING_ACCOUNT_NAME }}
@@ -66,7 +66,7 @@ jobs:
         cd ..
 
     - name: sign installer
-      uses: azure/trusted-signing-action@0.3.18
+      uses: azure/trusted-signing-action@v0.3.18
       with:
         endpoint: ${{ secrets.SIGNING_ENDPOINT }}
         trusted-signing-account-name: ${{ secrets.CODE_SIGNING_ACCOUNT_NAME }}
