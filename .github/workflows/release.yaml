@@ -1,7 +1,9 @@
 name: release
 
 on:
-  deployment:
+  push:
+    tags:
+      - 'v*.*.*'
 
 
 
