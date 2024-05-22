@@ -3,6 +3,9 @@ import platform
 import re
 import sys
 import textwrap
+from contextlib import redirect_stdout
+from io import StringIO
+from unittest import mock
 
 this_package = 'hd2_macros'
 outdir = 'hd2macros/hd2_macros/_internal'
@@ -63,9 +66,19 @@ for distdirname in dist_names:
     output += f'{"-" * 80}\n'
 
 python_info = f'Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}:{platform.python_revision()} [{platform.python_compiler()}]'
+
+license_buffer = StringIO()
+license.MAXLINES = 9999  # type: ignore
+with redirect_stdout(license_buffer) as f, mock.patch('builtins.input', new=lambda x: 'q'):
+    license()
+python_license_text = license_buffer.getvalue()
+
 output += f'''
 {python_info}
 {"-" * len(python_info)}
+
+Note: although the text contains the full license/copyright information for all
+components of CPython, not all components are actually present in this software.
 
 Copyright notice:
 
@@ -74,6 +87,11 @@ Copyright notice:
 Trademark notice:
 
     "Python" is a registered trademark of the Python Software Foundation”
+
+LICENSE:
+
+{textwrap.indent(python_license_text, '    ')}
+
 {"-" * 80}
 '''
 
