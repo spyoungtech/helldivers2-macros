@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "hd2_macros"
-#define MyAppVersion "1.2.3"
+#define MyAppVersion "1.2.4"
 #define MyAppPublisher "Spencer Phillip Young"
 #define MyAppURL "https://github.com/spyoungtech/helldivers2-macros"
 #define MyAppExeName "hd2_macros.exe"
