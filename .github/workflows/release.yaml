@@ -28,6 +28,7 @@ jobs:
         python -m pip install --upgrade wheel setuptools build pyinstaller ahk ahk[binary] pydantic
         pip install -e .
         pyinstaller --distpath=hd2macros --name "hd2_macros" --add-data ".\hd2_macros\config.toml:." -i .\hd2_macros.ico --recursive-copy-metadata=hd2_macros .\hd2_macros\__main__.py
+        python -m build
 
     - name: Azure login
       uses: azure/login@v1
