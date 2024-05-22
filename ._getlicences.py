@@ -46,10 +46,10 @@ pattern = re.compile(r'^(?P<package_name>[\w_]+)-(?P<version>.*)\.dist-info$')
 output = lic_template_header
 for distdirname in dist_names:
     package_name, version = re.match(pattern, distdirname).groups()  # type: ignore
-    package_info = f'{package_name} {version}'
-    output += f'\n{package_name} {version}\n'
     if package_name == this_package:
         continue
+    package_info = f'{package_name} {version}'
+    output += f'\n{package_name} {version}\n'
     output += f'{"-" * len(package_info)}\n\n'
 
     dist_dir = os.path.join(outdir, distdirname)
