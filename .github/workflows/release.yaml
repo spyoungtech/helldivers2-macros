@@ -26,8 +26,9 @@ jobs:
       shell: powershell
       run: |
         python -m pip install --upgrade wheel setuptools build pyinstaller ahk ahk[binary] pydantic
-        python -m build
-        pyinstaller --distpath=hd2macros --name "hd2_macros" --add-data ".\hd2_macros\config.toml:." -i .\hd2_macros.ico .\hd2_macros\__main__.py
+        pip install -e .
+        pyinstaller --distpath=hd2macros --name "hd2_macros" --add-data ".\hd2_macros\config.toml:." -i .\hd2_macros.ico --recursive-copy-metadata=hd2_macros .\hd2_macros\__main__.py
+
     - name: Azure login
       uses: azure/login@v1
       with:
@@ -60,6 +61,7 @@ jobs:
     - name: package
       shell: powershell
       run: |
+        python .\._getlicenses.py > INNOLICENSE
         & 'C:\Program Files (x86)\Inno Setup 6\ISCC.exe' inno.iss
         cd hd2macros
         7z a -r ..\hd2_macros.zip .
@@ -97,6 +99,7 @@ jobs:
           hd2_macros.zip
 
   release:
+    environment: deploy
     runs-on: ubuntu-latest
     needs: build
     permissions:
