@@ -66,11 +66,21 @@ def find_helldivers_window() -> Window | None:
     return None
 
 
-def do_strat_input(strat: T_Stratagems, target: Window, startup_delay: float | int = 1, key_delay: float = 0.1) -> None:
+def do_strat_input(
+    strat: T_Stratagems,
+    target: Window,
+    startup_delay: float | int = 1,
+    key_delay: float = 0.1,
+    input_type: Literal['WASD', 'Arrows'] = 'WASD',
+) -> None:
     time.sleep(startup_delay)
     input_code = STRATAGEMS[strat]
+    is_wasd = input_type == 'WASD'
     for direction in input_code:
-        key = INPUT_MAPPING[direction]
+        if is_wasd:
+            key = INPUT_MAPPING[direction]
+        else:
+            key = direction
         target.send(f'{{Blind}}{{{key} DOWN}}', blocking=False)
         time.sleep(key_delay)
         target.send(f'{{Blind}}{{{key} UP}}', blocking=False)
@@ -79,11 +89,15 @@ def do_strat_input(strat: T_Stratagems, target: Window, startup_delay: float | i
 
 
 def create_macro_function(
-    stratagem: T_Stratagems, target: Window, startup_delay: float | int = 1, key_delay: float = 0.1
+    stratagem: T_Stratagems,
+    target: Window,
+    startup_delay: float | int = 1,
+    key_delay: float = 0.1,
+    input_type: Literal['WASD', 'Arrows'] = 'WASD',
 ) -> Callable[[], Any]:
     def macro() -> None:
         logger.info(f'Performing input for {stratagem}')
-        do_strat_input(stratagem, target, startup_delay, key_delay)
+        do_strat_input(stratagem, target, startup_delay, key_delay, input_type)
 
     return macro
 
@@ -134,7 +148,9 @@ def main() -> int:
             ahk.stop_hotkeys()
             ahk.clear_hotkeys()
             for strat, hotkey in hotkeys.items():
-                callback = create_macro_function(strat, hd, config.general.hotkey_start_delay, config.general.key_delay)
+                callback = create_macro_function(
+                    strat, hd, config.general.hotkey_start_delay, config.general.key_delay, config.general.input_type
+                )
                 ahk.add_hotkey(hotkey, callback, ex_handler=error_handler)
             for name, loadout_config in config.loadouts.items():
                 switch_callback = create_loadout_switcher(name, loadout_config.hotkeys)
@@ -152,7 +168,9 @@ def main() -> int:
 
     for strat, hotkey in config.default_loadout.hotkeys.items():
         logger.debug('Initializing default loadout')
-        callback = create_macro_function(strat, hd, config.general.hotkey_start_delay, config.general.key_delay)
+        callback = create_macro_function(
+            strat, hd, config.general.hotkey_start_delay, config.general.key_delay, config.general.input_type
+        )
         ahk.add_hotkey(hotkey, callback, ex_handler=error_handler)
 
     ahk.add_hotkey(config.general.exit_hotkey, _exit, ex_handler=error_handler)

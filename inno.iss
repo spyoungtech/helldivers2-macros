@@ -2,7 +2,7 @@
 ; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
 
 #define MyAppName "hd2_macros"
-#define MyAppVersion "1.2.1"
+#define MyAppVersion "1.2.4"
 #define MyAppPublisher "Spencer Phillip Young"
 #define MyAppURL "https://github.com/spyoungtech/helldivers2-macros"
 #define MyAppExeName "hd2_macros.exe"
@@ -20,7 +20,7 @@ AppSupportURL={#MyAppURL}
 AppUpdatesURL={#MyAppURL}
 DefaultDirName={autopf}\{#MyAppName}
 DisableProgramGroupPage=yes
-LicenseFile=LICENSE
+LicenseFile=INNOLICENSE
 ; Uncomment the following line to run in non administrative install mode (install for current user only.)
 ;PrivilegesRequired=lowest
 PrivilegesRequiredOverridesAllowed=dialog
@@ -48,3 +48,11 @@ Name: "{autodesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; Tasks: de
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
+
+[Code]
+procedure InitializeWizard();
+begin
+  WizardForm.LicenseMemo.WordWrap := false
+  WizardForm.LicenseMemo.ScrollBars := ssBoth
+  WizardForm.LicenseMemo.Font.Name := 'Courier New';
+end;
