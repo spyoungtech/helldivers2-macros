@@ -151,5 +151,7 @@ switch_hotkey = "#2" # press Win+2 to load this loadout
 - `arc thrower`
 - `shield generator pack`
 - `patriot exosuit`
+- `emancipator exosuit`
+- `commando`
 
 See also: [constants.py](https://github.com/spyoungtech/helldivers2-macros/blob/main/hd2_macros/constants.py) for input mappings.
