@@ -100,7 +100,7 @@ STRATAGEMS: dict[T_Stratagems, T_Inputs] = {
     'orbital gas strike': ['Right', 'Right', 'Down', 'Right'],
     'orbital ems strike': ['Right', 'Right', 'Left', 'Down'],
     'orbital smoke strike': ['Right', 'Right', 'Down', 'Up'],
-    'orbital napalm barage': ['Right', 'Right', 'Down', 'Left', 'Right', 'Up'],
+    'orbital napalm barrage': ['Right', 'Right', 'Down', 'Left', 'Right', 'Up'],
     'hmg emplacement': ['Down', 'Up', 'Left', 'Right', 'Right', 'Left'],
     'shield generation relay': ['Down', 'Down', 'Left', 'Right', 'Left', 'Right'],
     'tesla tower': ['Down', 'Up', 'Right', 'Up', 'Left', 'Right'],
